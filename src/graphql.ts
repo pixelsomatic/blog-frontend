@@ -5,6 +5,7 @@ export const getPosts = gql`
     posts {
       id
       title
+      body
     }
   }
 `;

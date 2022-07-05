@@ -1,18 +1,25 @@
 import React from "react";
 import { IPost } from "../types/Posts";
+import Card from '@mui/material/Card';
+import { Typography } from "@mui/material";
 
 type Props = {
   post: IPost
 }
 
-const Card = ({ post }: Props) => {
-  const { title } = post
+const PostCard = ({ post }: Props) => {
+  const { title, body } = post
 
   return (
-    <div className="Card">
-      <h1>{title}</h1>
-    </div>
+    <Card sx={{ minWidth: 275, height: 150 }}>
+      <Typography variant="h5" component="div">
+        {title}
+      </Typography>
+      <Typography variant="body1" component="div">
+        {body}
+      </Typography>
+    </Card>
   )
 }
 
-export default Card
+export default PostCard

@@ -1,7 +1,7 @@
-import { DocumentNode, useQuery } from "@apollo/react-hooks";
+import { DocumentNode, useLazyQuery, useQuery } from "@apollo/react-hooks";
 import { IPosts } from "./types/Posts";
 
 export function usePostQuery(gqlQuery: DocumentNode) {
-  const { loading, error, data } = useQuery<IPosts>(gqlQuery);
-  return { loading, error, data };
+  const [getPostList, { loading, error, data }] = useLazyQuery<IPosts>(gqlQuery);
+  return { getPostList, loading, error, data };
 }
