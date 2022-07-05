@@ -6,6 +6,6 @@ export interface IPost {
 }
 
 export interface IPosts {
-  getPosts: IPost[]
+  posts: IPost[]
 }
 
