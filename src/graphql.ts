@@ -9,3 +9,12 @@ export const getPosts = gql`
     }
   }
 `;
+
+export const getFilteredPost = gql`
+  query getFilteredPost($title: String!) {
+    post(title: $title) {
+      id
+      title
+    }
+  }
+`;

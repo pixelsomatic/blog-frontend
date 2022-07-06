@@ -5,3 +5,8 @@ export function usePostQuery(gqlQuery: DocumentNode) {
   const [getPostList, { loading, error, data }] = useLazyQuery<IPosts>(gqlQuery);
   return { getPostList, loading, error, data };
 }
+
+export function useFilterQuery(gqlQuery: DocumentNode, title?: string) {
+  const [getFilteredPostList, { loading, error, data }] = useLazyQuery<IPosts>(gqlQuery, { variables: { title: title } });
+  return { getFilteredPostList, loading, error, data };
+}
